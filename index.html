@@ -18,10 +18,17 @@
         <section class="items">
             <h4>Selecione o produto</h4>
 
-            <div v-for="product in products" class="product selected">
+            <div 
+                v-for="product in products" 
+                class="product"
+                @click="product.active = !product.active" 
+                :class="{ selected : product.active }"
+            >
                 <div class="photo">
-                    <img :src="product.photo">
+                    <img 
+                    v-bind:src="product.photo">
                 </div>
+
                 <div class="description">
                     <span class="name">{{ product.name }}</span>
                     <span class="price">{{ product.price }}</span>
@@ -31,6 +38,7 @@
                         <button>+</button>
                     </div>
                 </div>
+
             </div>
 
         </section>
